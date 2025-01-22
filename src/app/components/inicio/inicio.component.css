@@ -1,0 +1,9 @@
+
+body{
+    display: block;
+}
+p{
+    padding: 24px;
+    background-color: rgba(168, 168, 168, 0.5);
+    font-size: large;
+}

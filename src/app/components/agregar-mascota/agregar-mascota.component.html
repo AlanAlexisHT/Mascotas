@@ -1,0 +1,30 @@
+<h2>Formulario de envío de mascota</h2>
+<div class="cuerpo">
+    <mat-form-field class="nombre">
+        <mat-label>Nombre del animal</mat-label>
+        <input matInput>
+    </mat-form-field>
+    <mat-form-field class="tipo">
+        <mat-label>Tipo de animal</mat-label>
+        <mat-select>
+            <mat-option value="Ave">Ave</mat-option>
+            <mat-option value="Canino">Canino</mat-option>
+            <mat-option value="Felino">Felino</mat-option>
+            <mat-option value="Equino">Equino</mat-option>
+            <mat-option value="Pez">Pez</mat-option>
+            <mat-option value="Reptil">Reptil</mat-option>
+            <mat-option value="Roedor">Roedor</mat-option>
+            <mat-option value="Rumiante">Rumiante</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field class="descripcion">
+        <mat-label>Descripción</mat-label>
+        <textarea matInput></textarea>
+    </mat-form-field>
+    
+    <button mat-stroked-button>
+        <mat-icon>send</mat-icon>
+        Enviar
+    </button>
+    
+</div>

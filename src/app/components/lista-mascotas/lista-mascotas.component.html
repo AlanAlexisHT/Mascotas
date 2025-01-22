@@ -1,0 +1,18 @@
+<h2>Lista de mascotas</h2>
+<div class="container responsive-grid">
+    <mat-card id="carta" *ngFor="let tarjeta of tarjetas()">
+        <mat-card-header>
+            <mat-card-title>{{ tarjeta.nombre }} : {{ tarjeta.tipo }}</mat-card-title>
+        </mat-card-header>
+        <br>
+        <img mat-card-image [src]="tarjeta.imagen">
+        <mat-card-content>
+            <br>
+            <p>{{ tarjeta.descripcion }}</p>
+        </mat-card-content>
+        <mat-card-actions>
+            <button mat-button>Me gusta</button>
+            <button mat-button>Compartir</button>
+        </mat-card-actions>
+    </mat-card>
+</div>

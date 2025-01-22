@@ -1,0 +1,15 @@
+.cuerpo{
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+}
+.nombre,.tipo{
+    width: 175px;
+}
+.descripcion{
+    width: 350px;
+}
+button{
+    background-color: rgba(175, 175, 175, 0.5);
+    width: 125px;
+}

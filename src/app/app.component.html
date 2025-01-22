@@ -1,0 +1,39 @@
+<mat-toolbar>
+	<button mat-icon-button aria-label="Menu icon">
+		<mat-icon>menu</mat-icon>
+	</button>
+	<h1>Página web con Angular Material</h1>
+</mat-toolbar>
+<mat-sidenav-container class="contenedor">
+	<mat-sidenav class="sidenav" mode="side" [opened]="true">
+		<mat-nav-list>
+			<a mat-list-item [routerLink]="['/']" routerLinkActive="active">
+				<span class="entry">
+					<mat-icon>house</mat-icon>
+					<span>Inicio</span>
+				</span>
+			</a>
+			<a mat-list-item [routerLink]="['/listaMascotas']" routerLinkActive="active">
+				<span class="entry">
+					<mat-icon>list</mat-icon>
+					<div>Lista</div>
+				</span>
+			</a>
+			<a mat-list-item [routerLink]="['/enviarForm']" routerLinkActive="active">
+				<span class="entry">
+					<mat-icon>add</mat-icon>
+					<span>Enviar</span>
+				</span>
+			</a>
+			<a mat-list-item [routerLink]="['/contacto']" routerLinkActive="active">
+				<span class="entry">
+					<mat-icon>contact_support</mat-icon>
+					<span>Contactar</span>
+				</span>
+			</a>
+		</mat-nav-list>
+	</mat-sidenav>
+	<mat-sidenav-content class="fondo">
+		<router-outlet></router-outlet>
+	</mat-sidenav-content>
+</mat-sidenav-container>
