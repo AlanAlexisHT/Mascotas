@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Mascota } from '../../service/mascota.service';
+import { Mascota, MascotaService, Tipo } from '../../service/mascota.service';
 
 @Component({
   selector: 'app-agregar-mascota',
@@ -8,13 +8,16 @@ import { Mascota } from '../../service/mascota.service';
   styleUrl: './agregar-mascota.component.css'
 })
 export class AgregarMascotaComponent {
+  constructor(private mascotaService: MascotaService) {
 
-	constructor(){
+  }
 
-	}
-
-	enviarMascota(mascota: Mascota){
-
-	}
+  enviarMascota(nombre: String, tipo: Tipo, descripcion: String) {
+    const mascota: Mascota = { nombre, tipo, descripcion };
+    this.mascotaService.guardarMascota(mascota).subscribe({
+      next: (response) => console.log("Guardada mascota: ", response),
+      error: (error) => console.error("Error al guardar: ", error)
+    });
+  }
 
 }
