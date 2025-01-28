@@ -1,12 +1,12 @@
 <h2>Formulario de envío de mascota</h2>
 <div class="cuerpo">
-    <mat-form-field class="nombre">
+    <mat-form-field  class="nombre">
         <mat-label>Nombre del animal</mat-label>
-        <input matInput>
+        <input #nombre matInput>
     </mat-form-field>
-    <mat-form-field class="tipo">
+    <mat-form-field  class="tipo">
         <mat-label>Tipo de animal</mat-label>
-        <mat-select>
+        <mat-select #tipo>
             <mat-option value="Ave">Ave</mat-option>
             <mat-option value="Canino">Canino</mat-option>
             <mat-option value="Felino">Felino</mat-option>
@@ -17,12 +17,17 @@
             <mat-option value="Rumiante">Rumiante</mat-option>
         </mat-select>
     </mat-form-field>
-    <mat-form-field class="descripcion">
+    <mat-form-field  class="descripcion">
         <mat-label>Descripción</mat-label>
-        <textarea matInput></textarea>
+        <textarea #descripcion matInput></textarea>
+    </mat-form-field>
+    <mat-form-field  class="imagen">
+        <mat-label>Imagen del animal</mat-label>
+        <input #imagen matInput>
+        <mat-icon>image</mat-icon>
     </mat-form-field>
     
-    <button mat-stroked-button>
+    <button mat-stroked-button (click)="enviarMascota(nombre.value, tipo.value, descripcion.value)">
         <mat-icon>send</mat-icon>
         Enviar
     </button>

@@ -3,8 +3,13 @@
     grid-template-columns: repeat(auto-fill, minmax(250px,1fr));
     gap: 24px;
 }
-#carta{
+#carta{ 
+    display: flex;
+    flex-direction: column;
     background-color: rgb(216, 216, 216);
+}
+mat-card-content{
+    flex-grow: 1;
 }
 #carta:hover{
     background-color: rgb(255, 255, 255);
@@ -14,3 +19,13 @@ img{
     height: 200px;
     object-fit: cover;
 }
+.boton{
+    min-width: auto;
+}
+mat-icon{
+    padding-left: 6.5px;
+}
+mat-icon:hover{
+    width: 18px;
+}
+

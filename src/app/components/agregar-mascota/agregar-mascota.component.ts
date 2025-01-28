@@ -8,6 +8,7 @@ import { Mascota, MascotaService, Tipo } from '../../service/mascota.service';
   styleUrl: './agregar-mascota.component.css'
 })
 export class AgregarMascotaComponent {
+  mascotas : Mascota[] = [];
   constructor(private mascotaService: MascotaService) {
 
   }
@@ -15,9 +16,8 @@ export class AgregarMascotaComponent {
   enviarMascota(nombre: String, tipo: Tipo, descripcion: String) {
     const mascota: Mascota = { nombre, tipo, descripcion };
     this.mascotaService.guardarMascota(mascota).subscribe({
-      next: (response) => console.log("Guardada mascota: ", response),
+      next: (response) => console.table(response),
       error: (error) => console.error("Error al guardar: ", error)
     });
   }
-
 }
