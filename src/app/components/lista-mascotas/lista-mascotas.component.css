@@ -19,13 +19,13 @@ img{
     height: 200px;
     object-fit: cover;
 }
+mat-card-actions{
+    display: flex;
+    width: auto;
+}
 .boton{
-    min-width: auto;
-}
-mat-icon{
-    padding-left: 6.5px;
-}
-mat-icon:hover{
-    width: 18px;
+    width: 100px;
+    min-width: fit-content;
+    border: 1px solid;
 }
 
