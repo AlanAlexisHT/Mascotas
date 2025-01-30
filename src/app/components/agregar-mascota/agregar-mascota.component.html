@@ -2,11 +2,11 @@
 <div class="cuerpo">
     <mat-form-field  class="nombre">
         <mat-label>Nombre del animal</mat-label>
-        <input #nombre matInput>
+        <input #nombre matInput required>
     </mat-form-field>
     <mat-form-field  class="tipo">
         <mat-label>Tipo de animal</mat-label>
-        <mat-select #tipo>
+        <mat-select #tipo required>
             <mat-option value="Ave">Ave</mat-option>
             <mat-option value="Canino">Canino</mat-option>
             <mat-option value="Felino">Felino</mat-option>
@@ -19,15 +19,15 @@
     </mat-form-field>
     <mat-form-field  class="descripcion">
         <mat-label>Descripción</mat-label>
-        <textarea #descripcion matInput></textarea>
+        <textarea #descripcion matInput required></textarea>
     </mat-form-field>
     <mat-form-field  class="imagen">
-        <mat-label>Imagen del animal</mat-label>
-        <input #imagen matInput>
+        <mat-label>Enlace de la imagen del animal</mat-label>
+        <input #imagen matInput required>
         <mat-icon>image</mat-icon>
     </mat-form-field>
     
-    <button mat-stroked-button (click)="enviarMascota(nombre.value, tipo.value, descripcion.value)">
+    <button mat-stroked-button (click)="enviarMascota(nombre.value, tipo.value, descripcion.value, imagen.value)">
         <mat-icon>send</mat-icon>
         Enviar
     </button>

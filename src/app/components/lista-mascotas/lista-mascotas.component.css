@@ -11,6 +11,11 @@
 mat-card-content{
     flex-grow: 1;
 }
+mat-card-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
 #carta:hover{
     background-color: rgb(255, 255, 255);
 }
@@ -23,9 +28,5 @@ mat-card-actions{
     display: flex;
     width: auto;
 }
-.boton{
-    width: 100px;
-    min-width: fit-content;
-    border: 1px solid;
-}
+
 

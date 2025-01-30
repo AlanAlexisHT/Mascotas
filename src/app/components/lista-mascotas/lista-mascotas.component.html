@@ -1,18 +1,4 @@
 <h2>Lista de mascotas</h2>
-<mat-form-field  class="tipo">
-    <mat-label>Tipo de animal</mat-label>
-    <mat-select #tipo>
-        <mat-option value="Ave">Ave</mat-option>
-        <mat-option value="Canino">Canino</mat-option>
-        <mat-option value="Felino">Felino</mat-option>
-        <mat-option value="Equino">Equino</mat-option>
-        <mat-option value="Pez">Pez</mat-option>
-        <mat-option value="Reptil">Reptil</mat-option>
-        <mat-option value="Roedor">Roedor</mat-option>
-        <mat-option value="Rumiante">Rumiante</mat-option>
-    </mat-select>
-</mat-form-field>
-<button mat-raised-button (click)="verPorTipo(tipo.value)">Buscar</button>
 <div class="container responsive-grid">
     <mat-card id="carta" *ngFor="let tarjeta of tarjetas()">
         <mat-card-header>
@@ -25,10 +11,11 @@
             <p>{{ tarjeta.descripcion }}</p>
         </mat-card-content>
         <mat-card-actions>
-            <button class="boton"  mat-button><mat-icon style="margin-left: 0px; margin-right: 0px">thumb_up</mat-icon></button>
-            <button class="boton" mat-button><mat-icon style="margin-left: 0px; margin-right: 0px">thumb_down</mat-icon></button>
-            <button class="boton" mat-button><mat-icon style="margin-left: 0px; margin-right: 0px">share</mat-icon></button>
-            <button class="boton" mat-button><mat-icon style="margin-left: 0px; margin-right: 0px">bookmark</mat-icon></button>
+            <button mat-icon-button><mat-icon>thumb_up</mat-icon></button>
+            <button mat-icon-button><mat-icon>thumb_down</mat-icon></button>
+            <button mat-icon-button><mat-icon>share</mat-icon></button>
+            <button mat-icon-button><mat-icon>bookmark</mat-icon></button>
+            <button mat-icon-button (click)="eliminarMascota(tarjeta.nombre)"><mat-icon>delete</mat-icon></button>
         </mat-card-actions>
     </mat-card>
 </div>

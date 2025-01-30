@@ -14,9 +14,17 @@ export enum Tipo {
 }
 
 export interface Mascota {
+  id?: number,
   nombre: String,
   tipo: Tipo,
   descripcion: String,
+  imagen: String
+}
+
+export type ContenidoTarjeta = {
+  nombre: String,
+  tipo: String,
+  descripcion: String;
   imagen?: String
 }
 
@@ -34,8 +42,10 @@ export class MascotaService {
 
   }
 
-  verTodasMascotas(): Observable<Mascota[]> {
-    return this.httpClient.get<Mascota[]>(`${this.url}/listaMascotas`);
+  verTodasMascotas() {
+    this.httpClient.get<Mascota[]>(`${this.url}/listaMascotas`).subscribe(mascotas => {
+      this.mascotaSubject.next(mascotas);
+    });
   }
 
   verTodasMascotasPorTipo(tipo : Tipo): Observable<Mascota[]> {
@@ -52,8 +62,8 @@ export class MascotaService {
       );
   }
 
-  eliminarMascota(id: number): Observable<Mascota> {
-    return this.httpClient.delete<Mascota>(`${this.url}/mascotas/${id}`)
-      .pipe(tap(() => this.verTodasMascotas().subscribe()));
+  eliminarMascota(nombre: String): Observable<Mascota> {
+    return this.httpClient.delete<Mascota>(`${this.url}/mascotas/${nombre}`)
+      .pipe(tap(() => this.verTodasMascotas()));
   }
 }

@@ -3,10 +3,10 @@
     display: flex;
     flex-direction: column;
 }
-.nombre,.tipo,.imagen{
+.nombre,.tipo{
     width: 175px;
 }
-.descripcion{
+.descripcion,.imagen{
     width: 350px;
 }
 button{
