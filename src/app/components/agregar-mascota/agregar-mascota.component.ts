@@ -14,9 +14,11 @@ export class AgregarMascotaComponent {
 
   enviarMascota(nombre: String, tipo: Tipo, descripcion: String, imagen:String) {
     const mascota: Mascota = {nombre, tipo, descripcion, imagen };
-    this.mascotaService.guardarMascota(mascota).subscribe({
-      next: (response) => console.table(response),
-      error: (error) => console.error("Error al guardar: ", error)
-    });
+    if(mascota){
+      this.mascotaService.guardarMascota(mascota).subscribe({
+        next: (response) => console.table(response),
+        error: (error) => console.error("Error al guardar: ", error)
+      });
+    }
   }
 }

@@ -86,18 +86,19 @@ app.post('/mascota', (req, res) => {
     });
 });
 
-app.delete('/mascotas/:nombre', (req, res) => {
+app.delete('/mascotas/:nombre/:tipo', (req, res) => {
     const mascotaNombre = req.params.nombre;
-    const query = 'DELETE FROM mascotas WHERE nombre = ?';
+    const mascotaTipo = req.params.tipo;
+    const query = 'DELETE FROM mascotas WHERE nombre = ? AND tipo = ?';
 
-    db.run(query, [mascotaNombre], function (err) {
+    db.run(query, [mascotaNombre,mascotaTipo], function (err) {
         if (err) {
             console.error('Error: ', err.message);
             res.status(500);
         } else if (this.changes === 0) {
             res.status(404).send('Registro no existente.');
         } else {
-            res.status(200).json({ message:`Mascota con ID:${mascotaNombre} eliminada.`});
+            res.status(200).json({ message:`Mascota con ID:${mascotaNombre} y tipo ${mascotaTipo} eliminada.`});
         }
     });
 });

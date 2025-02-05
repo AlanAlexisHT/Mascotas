@@ -1,5 +1,5 @@
 import { Component, OnInit, signal } from '@angular/core';
-import { ContenidoTarjeta, MascotaService } from '../../service/mascota.service';
+import { ContenidoTarjeta, MascotaService, Tipo } from '../../service/mascota.service';
 
 @Component({
   selector: 'app-lista-mascotas',
@@ -29,7 +29,9 @@ export class ListaMascotasComponent implements OnInit {
     this.mascotaService.verTodasMascotas();
   }
 
-  eliminarMascota(nombre:String){
-    this.mascotaService.eliminarMascota(nombre).subscribe();
+  eliminarMascota(nombre:String,tipoString:String){
+    const tipo = Tipo[tipoString as keyof typeof Tipo];
+    console.log(tipo);
+      this.mascotaService.eliminarMascota(nombre,tipo).subscribe();
   }
 }

@@ -3,14 +3,14 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 
 export enum Tipo {
-  AVE = 'Ave',
-  CANINO = 'Canino',
-  FELINO = 'Felino',
-  EQUINO = 'Equino',
-  PEZ = 'Pez',
-  REPTIL = 'Reptil',
-  ROEDOR = 'Roedor',
-  RUMIANTE = 'Rumiante'
+  Ave = 'Ave',
+  Canino = 'Canino',
+  Felino = 'Felino',
+  Equino = 'Equino',
+  Pez = 'Pez',
+  Reptil = 'Reptil',
+  Roedor = 'Roedor',
+  Rumiante = 'Rumiante'
 }
 
 export interface Mascota {
@@ -52,8 +52,8 @@ export class MascotaService {
     return this.httpClient.get<Mascota[]>(`${this.url}/listaMascotas?tipo${tipo}`);
   }
 
-  verUnaMascota(id: number): Observable<Mascota> {
-    return this.httpClient.get<Mascota>(`${this.url}/mascotas/${id}`);
+  verUnaMascota(nombre: String, tipo:Tipo ): Observable<Mascota> {
+    return this.httpClient.get<Mascota>(`${this.url}/mascotas/${nombre+tipo}`);
   }
 
   guardarMascota(mascota: Mascota): Observable<Mascota> {
@@ -62,8 +62,8 @@ export class MascotaService {
       );
   }
 
-  eliminarMascota(nombre: String): Observable<Mascota> {
-    return this.httpClient.delete<Mascota>(`${this.url}/mascotas/${nombre}`)
+  eliminarMascota(nombre: String,tipo:Tipo): Observable<Mascota> {
+    return this.httpClient.delete<Mascota>(`${this.url}/mascotas/${nombre}/${tipo}`)
       .pipe(tap(() => this.verTodasMascotas()));
   }
 }
