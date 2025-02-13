@@ -16,7 +16,7 @@ import com.users.usuarios.services.UsuarioService;
 
 
 @RestController
-@RequestMapping("/usuarios")
+@RequestMapping("/api/usuarios")
 public class UsuarioController {
     
     private static final Logger logger = LoggerFactory.getLogger(UsuarioController.class);
@@ -26,7 +26,7 @@ public class UsuarioController {
         this.usuarioService = usuarioService;
     }
 
-    @GetMapping("")
+    @GetMapping("/todos")
     public List<Usuario> getUsuarios() {
         logger.info("Se solicitó la lista de todos los usuarios.");
         return usuarioService.getUsuarios();
